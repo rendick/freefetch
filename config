@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cyan="\e[36m"
+red="\e[31m"
+white="\e[1;37m"
+none="\e[0m"
+
+bold=$(tput bold)
+normal=$(tput sgr0)

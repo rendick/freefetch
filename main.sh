@@ -2,7 +2,7 @@
 
 source ./config
 
-while getopts ":help" option; do
+while getopts -e ":help" option; do
     case $option in
     h)
         echo ""
@@ -49,15 +49,15 @@ case $DISTRO in
                     ${red}memory${none} $(free -h | awk '/Mem:/ {print $3 "/" $2}')
 "
     ;;
-"Ubuntu")
+"Debian")
     LOGO="
-           _        ${red}$USER${none}@${red}$HOSTNAME${none}        
-       ---(_)       ${red}os${none}     $DISTRO
-   _/  ---  \\       ${red}host${none}   $HOSTNAME
-  (_) |   |   |     ${red}kernel${none} $(uname -r)
-    \\  --- _/       ${red}uptime${none} $(uptime -p)
-       ---(_)       ${red}pkgs${none}   $(pacman -Qq | wc -l)
-                    ${red}memory${none} $(free -h | awk '/Mem:/ {print $3 "/" $2}')
+     ,---._        ${red}$USER${none}@${red}$HOSTNAME${none}        
+   /\`  __  \\       ${red}os${none}     $DISTRO
+  |   /    |       ${red}host${none}   $HOSTNAME
+  |   \`.__.\`       ${red}kernel${none} $(uname -r)
+   \               ${red}uptime${none} $(uptime -p)
+    \`-,_           ${red}pkgs${none}   $(pacman -Qq | wc -l)
+                   ${red}memory${none} $(free -h | awk '/Mem:/ {print $3 "/" $2}')
 "
     ;;
 # Add more cases for other distributions here
